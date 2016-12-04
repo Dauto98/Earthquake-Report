@@ -9,18 +9,30 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:id="@+id/magitudeView"/>
+        android:id="@+id/magitudeView"
+        android:text="12343"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:paddingRight="5dp"
+        android:paddingLeft="10dp"
+        android:gravity="center_vertical"/>
 
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:id="@+id/placeView"/>
+        android:id="@+id/placeView"
+        android:text="aavsvasv"
+        android:padding="5dp"
+        android:gravity="center_vertical"/>
 
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:id="@+id/timeView"/>
+        android:id="@+id/timeView"
+        android:text="november"
+        android:padding="5dp"
+        android:gravity="center_vertical"/>
 
 </LinearLayout>
