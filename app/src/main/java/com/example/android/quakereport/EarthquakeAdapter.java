@@ -32,7 +32,7 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
 
         //set magitude
         TextView Magitude = (TextView) listItemView.findViewById(R.id.magitudeView);
-        Magitude.setText(Float.toString(currentEarthquake.getMagitude()));
+        Magitude.setText(Double.toString(currentEarthquake.getMagitude()));
 
         //set place
         TextView Place = (TextView) listItemView.findViewById(R.id.placeView);

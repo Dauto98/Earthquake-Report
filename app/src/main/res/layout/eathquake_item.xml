@@ -9,7 +9,7 @@
 
     <TextView
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="1"
         android:id="@+id/magitudeView"
         android:gravity="center_vertical"
@@ -17,7 +17,7 @@
 
     <TextView
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="1"
         android:id="@+id/placeView"
         android:gravity="center_vertical"
@@ -25,7 +25,7 @@
 
     <TextView
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="1"
         android:id="@+id/timeView"
         android:gravity="center_vertical"
