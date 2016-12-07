@@ -16,12 +16,20 @@
         tools:text="123"/>
 
     <TextView
+        android:id="@+id/offSetPlaceView"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        tools:text="12km NW of" />
+
+    <TextView
         android:id="@+id/placeView"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:gravity="center_vertical"
-        tools:text="San Francisco"/>
+        tools:text="San Francisco" />
 
     <TextView
         android:id="@+id/dateView"

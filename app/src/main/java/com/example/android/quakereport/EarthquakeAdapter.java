@@ -36,9 +36,26 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
         TextView Magitude = (TextView) listItemView.findViewById(R.id.magitudeView);
         Magitude.setText(Double.toString(currentEarthquake.getMagitude()));
 
+        //split place string into 2 substrings
+        String mainLocation;
+        String offSet;
+        String place = currentEarthquake.getPlace();
+        int ofIndex = place.indexOf("of");
+        if (ofIndex < 0) {
+            offSet = "Near of";
+            mainLocation = place;
+        } else {
+            offSet = place.substring(0, ofIndex + 2);
+            mainLocation = place.substring(ofIndex + 3);
+        }
+
+        //set offset place
+        TextView OffSet = (TextView) listItemView.findViewById(R.id.offSetPlaceView);
+        OffSet.setText(offSet);
+
         //set place
         TextView Place = (TextView) listItemView.findViewById(R.id.placeView);
-        Place.setText(currentEarthquake.getPlace());
+        Place.setText(mainLocation);
 
         //change date and time from UNIX time to normal time format
         long timeInMiliSec = Long.parseLong(currentEarthquake.getTime());
