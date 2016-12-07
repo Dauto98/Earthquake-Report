@@ -1,34 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:minHeight="33dp"
+    android:orientation="horizontal"
     android:padding="16dp">
 
     <TextView
+        android:id="@+id/magitudeView"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:id="@+id/magitudeView"
         android:gravity="center_vertical"
         tools:text="123"/>
 
     <TextView
+        android:id="@+id/placeView"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:id="@+id/placeView"
         android:gravity="center_vertical"
         tools:text="San Francisco"/>
 
     <TextView
+        android:id="@+id/dateView"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:id="@+id/timeView"
         android:gravity="center_vertical"
         tools:text="21st Nov 2016"/>
+
+    <TextView
+        android:id="@+id/timeView"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        tools:text="3:00 AM" />
 
 </LinearLayout>
