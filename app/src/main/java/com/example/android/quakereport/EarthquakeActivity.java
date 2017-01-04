@@ -18,6 +18,8 @@ package com.example.android.quakereport;
 import android.app.LoaderManager;
 import android.content.Intent;
 import android.content.Loader;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -46,13 +48,22 @@ public class EarthquakeActivity extends AppCompatActivity implements LoaderManag
         super.onCreate(savedInstanceState);
         setContentView(R.layout.earthquake_activity);
 
-        getLoaderManager().initLoader(0, null, this);
-
         emptyView = (TextView) findViewById(R.id.emptyView);
         // Find a reference to the {@link ListView} in the layout
         earthquakeListView = (ListView) findViewById(R.id.list);
         earthquakeListView.setEmptyView(emptyView);
 
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = connectivityManager.getActiveNetworkInfo();
+        boolean isConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
+
+        if (isConnected){
+            getLoaderManager().initLoader(0, null, this);
+        } else {
+            ProgressBar LoadingSpinner = (ProgressBar) findViewById(R.id.loadingSpinner);
+            LoadingSpinner.setVisibility(View.GONE);
+            emptyView.setText("No internet connection");
+        }
     }
 
     @Override
