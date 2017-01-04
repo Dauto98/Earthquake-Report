@@ -24,6 +24,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -61,6 +62,9 @@ public class EarthquakeActivity extends AppCompatActivity implements LoaderManag
 
     @Override
     public void onLoadFinished(Loader<ArrayList<Earthquake>> loader, final ArrayList<Earthquake> earthquakes) {
+        ProgressBar LoadingSpinner = (ProgressBar) findViewById(R.id.loadingSpinner);
+        LoadingSpinner.setVisibility(View.GONE);
+
         // Create a new {@link ArrayAdapter} of earthquakes
         adapter = new EarthquakeAdapter(EarthquakeActivity.this, earthquakes);
 
