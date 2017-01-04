@@ -24,6 +24,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -36,12 +37,21 @@ public class EarthquakeActivity extends AppCompatActivity implements LoaderManag
 
     EarthquakeAdapter adapter;
 
+    private TextView emptyView;
+    ListView earthquakeListView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.earthquake_activity);
 
         getLoaderManager().initLoader(0, null, this);
+
+        emptyView = (TextView) findViewById(R.id.emptyView);
+        // Find a reference to the {@link ListView} in the layout
+        earthquakeListView = (ListView) findViewById(R.id.list);
+        earthquakeListView.setEmptyView(emptyView);
+
     }
 
     @Override
@@ -51,15 +61,14 @@ public class EarthquakeActivity extends AppCompatActivity implements LoaderManag
 
     @Override
     public void onLoadFinished(Loader<ArrayList<Earthquake>> loader, final ArrayList<Earthquake> earthquakes) {
-        // Find a reference to the {@link ListView} in the layout
-        ListView earthquakeListView = (ListView) findViewById(R.id.list);
-
         // Create a new {@link ArrayAdapter} of earthquakes
         adapter = new EarthquakeAdapter(EarthquakeActivity.this, earthquakes);
 
         // Set the adapter on the {@link ListView}
         // so the list can be populated in the user interface
         earthquakeListView.setAdapter(adapter);
+
+        emptyView.setText("No earthquake found");
 
         //set intent to go to the web page about earthquake
         earthquakeListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -71,7 +80,8 @@ public class EarthquakeActivity extends AppCompatActivity implements LoaderManag
                     startActivity(goToWeb);
                 }
             }
-        });    }
+        });
+    }
 
     @Override
     public void onLoaderReset(Loader<ArrayList<Earthquake>> loader) {
